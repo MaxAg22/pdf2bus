@@ -2,15 +2,13 @@
 import pdfParse from 'pdf-parse/lib/pdf-parse'
 import { HorariosFormateados } from "../interfaces/horario.interface";
 
-const regex = /([01]?\d|2[0-3]):[0-5]\d/;
+const timeRegex = /(?:[01]?\d|2[0-3]):[0-5]\d/g;
 
 export const getHorarios = async (Url: string) => {
 
     const response = await fetch(Url);
 
     if (!response.ok) throw new Error("Error al obtener el PDF de horarios");
-
-    console.log("PDF descargado correctamente");    
 
     const arrayBuffer = await response.arrayBuffer();
 
@@ -45,33 +43,8 @@ function filtrarLineas(texto: string): string[] {
   const resultado = lineas.filter(linea =>
     linea.startsWith("La Calera") || linea.startsWith("Cordoba")
   );
-
-    console.log("Líneas filtradas:", resultado);
   return resultado;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const timeRegex = /(?:[01]?\d|2[0-3]):[0-5]\d/g;
 
 function getTimesFromLine(line: string): string[] {
   if (!line) return [];

@@ -11,9 +11,6 @@ export default function Home() {
 
   const { horarios, isLoading, isError } = useHorarios(formatedOption!);
 
-  console.log("horarios:", horarios);
-
-
   if (isError) console.error("Error al obtener los horarios:", isError);
 
   const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {

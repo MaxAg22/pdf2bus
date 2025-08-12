@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { useState } from "react";
 import type { HorariosFormateados } from "../interfaces/horario.interface";
 
@@ -44,7 +46,7 @@ export const PrintHorarios = ({
                   horarios.lunesViernes,
                   "lunesViernesIda",
                   "lunesViernesVuelta"
-                ).map((h, idx) => (
+                ).map((h: any, idx: any) => (
                   <li key={idx} className="text-gray-700">
                     {h.salida} → {h.llegada}
                   </li>
@@ -68,7 +70,7 @@ export const PrintHorarios = ({
                   horarios.sabados,
                   "sabadosIda",
                   "sabadosVuelta"
-                ).map((h, idx) => (
+                ).map((h: any, idx: any) => (
                   <li key={idx} className="text-gray-700">
                     {h.salida} → {h.llegada}
                   </li>
@@ -92,7 +94,7 @@ export const PrintHorarios = ({
                   horarios.domingosYFeriados,
                   "DomingosYFeriadosIda",
                   "DomingosYFeriadosVuelta"
-                ).map((h, idx) => (
+                ).map((h: any, idx: any) => (
                   <li key={idx} className="text-gray-700">
                     {h.salida} → {h.llegada}
                   </li>
